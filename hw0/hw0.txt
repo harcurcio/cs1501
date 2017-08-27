@@ -1,6 +1,6 @@
-* Please complete the following form. 123
+* Please complete the following form.
 
-- Name: Michael Wehar
-- Pitt Email: mwehar@buffalo.edu
+- Name: 
+- Pitt Email: 
 
 Note: Your Bitbucket account should be associated with your pitt.edu email address.
