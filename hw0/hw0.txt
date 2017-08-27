@@ -1,0 +1,6 @@
+* Please complete the following form.
+
+- Name:
+- Pitt Email:
+
+Note: Your Bitbucket account should be associated with your pitt.edu email address.
