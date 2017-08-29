@@ -8,4 +8,4 @@
 
 * This repository is for CS1501 programming projects.
 * Please fork your own copy of this repository and make your copy private.
-* Please add mwehar@buffalo.edu as a collaborator.
+* Please add dff72324@gmail.com as a collaborator.
