@@ -3,13 +3,15 @@ import java.util.Arrays;
 
 public class Heap {
 	
-	private int[] finalArray;
+	static int[] fArray;
+	int size = 0;
+	static Word[] maxHeap = new Word[10000];
 
 	public Heap(Word[] array){
 		buildHeap(array);
 	}
 	
-	public void buildHeap(Word[] array){
+	public Word[] buildHeap(Word[] array){
 	// Problem #2
 	// Fill in this method with an O(n) time algorithm
 	// that builds an n element complete binary heap.
@@ -17,37 +19,59 @@ public class Heap {
     // and helper methods.
 		String[] stringArr = new String[array.length];
 		String[] strings = new String[array.length];
-		finalArray = new int[array.length];
+		fArray = new int[array.length];
 		for(int i=0; i<array.length; i++)
 		{
 			stringArr[i] = "" + array[i];
 			strings[i] = stringArr[i];
 			stringArr[i] = stringArr[i].substring(stringArr[i].indexOf(" ")+1);
 			stringArr[i] = stringArr[i].substring(0, stringArr[i].indexOf("]"));
-			finalArray[i] = Integer.parseInt(stringArr[i]);
+			fArray[i] = Integer.parseInt(stringArr[i]);
 		}
+
 
 		int n = array.length;
 
 		for(int i=n/2-1; i>=0; i--)
 		{
-			heapify(finalArray, n, i, array);
+			heapify(fArray, n, i, array);
 		}
 
 		for(int i=n-1; i>=0; i--)
 		{
-			int temp = finalArray[0];
-			finalArray[0] = finalArray[i];
-			finalArray[i] = temp;
-			heapify(finalArray, i, 0, array);
+			int temp = fArray[0];
+			fArray[0] = fArray[i];
+			fArray[i] = temp;
+			heapify(fArray, i, 0, array);
 		}
 
 		String[] numbers = new String[array.length];
 
 		for(int i=0; i<array.length; i++)
 		{
-			numbers[i] = Integer.toString(finalArray[i]);
+			numbers[i] = Integer.toString(fArray[i]);
 		}
+
+		for(int i=0; i<array.length; i++)
+		{
+			int min = i;
+			for(int j=i+1; j<array.length; j++)
+			{
+				if(numbers[i].equals(stringArr[j]))
+				{
+					min = j;
+				}
+			}
+			String tester = stringArr[min];
+			stringArr[min] = stringArr[i];
+			stringArr[i] = tester;
+
+			Word secondSwap = array[min];
+			array[min] = array[i];
+			array[i] = secondSwap;
+		}
+		maxHeap = array;
+		return maxHeap;
 	}
 
 	static void printArray(Word array[])
@@ -60,26 +84,27 @@ public class Heap {
 		System.out.println();
 	}
 
-	public void heapify(int[] finalArray, int n, int i, Word[] array)
+	public void heapify(int[] fArray, int n, int i, Word[] array)
 	{
 		int min = i;
 		int leftChild = 2*i+1;
 		int rightChild = 2*i+2;
 
-		if(leftChild<n && finalArray[leftChild] < finalArray[min])
+		if(leftChild<n && fArray[leftChild] < fArray[min])
 		{
 			min=leftChild;
 		}
-		if(rightChild<n && finalArray[rightChild] < finalArray[min])
+		if(rightChild<n && fArray[rightChild] < fArray[min])
 		{
 			min=rightChild;
 		}
 		if(min!=i)
 		{
-			int temp = finalArray[i];
-			finalArray[i] = finalArray[min];
-			heapify(finalArray, n, min, array);
+			int temp = fArray[i];
+			fArray[i] = fArray[min];
+			heapify(fArray, n, min, array);
 		}
+
 	}
 	
 	public Word removeMax(){
@@ -91,7 +116,8 @@ public class Heap {
 		array[front] = array[count--];
 
 		return popped;*/
-		return null;
+		Word[] mHeap = new Word[fArray.length];
+		return mHeap[0];
 	}
 	
 	public Word[] select(int k){

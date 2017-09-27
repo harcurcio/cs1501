@@ -40,6 +40,7 @@ public class Selector {
 			}
 		}
 
+
 		int tester = wordFreq[min];
 		wordFreq[min] = wordFreq[i];
 		wordFreq[i] = tester;
