@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class DataReader {
 	
@@ -8,7 +9,7 @@ public class DataReader {
 		Datum[] dataArray = new Datum[10000];
 		
 		try{
-			BufferedReader bf = new BufferedReader(new FileReader("words.csv"));
+			BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream("words.csv"), "UTF-8"));
 			int count = 0;
 			while(count < dataArray.length){
 				dataArray[count] = parseLine(bf.readLine());
