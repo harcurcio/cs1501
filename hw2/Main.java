@@ -1,4 +1,4 @@
-
+//Harlie Curcio
 public class Main {
 	public static void main(String[] args){
 		Datum[] dataArray = DataReader.loadData();
@@ -22,6 +22,8 @@ public class Main {
 	// Fill in this method to compute the size of the largest
 	// linkedlist. You must use the getSize and countCollisions
 	// methods to get full credit.
+		int size = map.getSize();
+		return map.countCollisions(size);
 	}
 	
 	public static int sparsityTest(ChainingHashMap map){
@@ -29,5 +31,8 @@ public class Main {
 	// Fill in this method to compute the number of empty
 	// linkedlists. You must use the getSize and countCollisions
 	// methods to get full credit.
+		int size = map.getSize();
+		size = size-map.countCollisions(size);
+		return size;
 	}
 }
