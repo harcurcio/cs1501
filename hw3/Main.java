@@ -34,7 +34,7 @@ public class Main {
 		Location E = new Location("E");
 		Location F = new Location("F");
 		Location G = new Location("G");
-		Location H = new Location("G");
+		Location H = new Location("H");
 		Location I = new Location("I");
 		
 		graph.addVertex(start);
