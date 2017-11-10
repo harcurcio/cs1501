@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
-public class BST {
+public class BFS {
 
 	// Returns the set of reachable locations using breadth first search
 	public static Set<Location> getReachableSet(WeightedGraph graph, Location start){

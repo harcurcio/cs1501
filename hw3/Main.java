@@ -8,7 +8,7 @@ public class Main {
 		WeightedGraph graph = new WeightedGraph();
 		createExampleGraph(graph, start);
 		
-		Set<Location> reachable = BST.getReachableSet(graph, start);
+		Set<Location> reachable = BFS.getReachableSet(graph, start);
 		Set<Location> destinations = Dijkstra.getDestinationSet(graph, start, 650);
 		
 		System.out.println("Reachable Locations: ");
