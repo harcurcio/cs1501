@@ -14,7 +14,8 @@ public class Dijkstra {
 	// use Dijkstra's algorithm to get full credit.  We encourage you to
 	// implement the |V|^2 time version of Dijkstra's algorithm.  You are
 	// free to add helper methods. 
-
+		Set<Location> end = null;
+		return end;
 	}
 	
 }
