@@ -4,13 +4,13 @@ import java.util.Map;
 
 public class Multiset {
 
-	Map<Item, Integer> store;
+	Map<Order, Integer> store;
 	
 	public Multiset(){
-		store = new HashMap<Item, Integer>();
+		store = new HashMap<Order, Integer>();
 	}
 	
-	public void add(Item item){
+	public void add(Order item){
 		Integer temp = store.get(item);
 		if(temp == null)
 			store.put(item, 1);
@@ -18,14 +18,14 @@ public class Multiset {
 			store.put(item, temp + 1);
 	}
 	
-	public Integer count(Item item){
+	public Integer count(Order item){
 		if(store.get(item) == null)
 			return 0;
 		else
 			return store.get(item);
 	}
 	
-	public Iterator<Item> iterator(){
+	public Iterator<Order> iterator(){
 		return store.keySet().iterator();
 	}
 }

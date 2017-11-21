@@ -6,14 +6,14 @@ public class Main {
 		int costLimit = 1000;
 		int timeLimit = 30;
 		
-		Item[] items = new Item[4];
+		Order[] orders = new Order[4];
 		// Arguments: String name, int cost, int time, int numberOfCookies
-		items[0] = new Item("Chocolate Chip", 50, 2, 150);
-		items[1] = new Item("Peanut Butter", 100, 3, 250);
-		items[2] = new Item("Snickerdoodle", 50, 6, 200);
-		items[3] = new Item("Oatmeal Raisin", 120, 1, 200);
+		orders[0] = new Order("Chocolate Chip", 50, 2, 150);
+		orders[1] = new Order("Peanut Butter", 100, 3, 250);
+		orders[2] = new Order("Snickerdoodle", 50, 6, 200);
+		orders[3] = new Order("Oatmeal Raisin", 120, 1, 200);
 		
-		Multiset set = KnapsackSolver.solve(items, costLimit, timeLimit);
+		Multiset set = KnapsackSolver.solve(orders, costLimit, timeLimit);
 		printResult(set, costLimit, timeLimit);
 		
 		// ANSWER:
@@ -23,15 +23,15 @@ public class Main {
 	}
 	
 	private static void printResult(Multiset set, int costLimit, int timeLimit){
-		System.out.println("**** Items ****");
+		System.out.println("**** Orders ****");
 		System.out.println();
 		
 		int total = 0;
-		Iterator<Item> it = set.iterator();
+		Iterator<Order> it = set.iterator();
 		while(it.hasNext()){
-			Item item = it.next();
-			total += item.numberOfCookies * set.count(item);
-			System.out.println(item.name + " x "  + set.count(item));
+			Order order = it.next();
+			total += order.numberOfCookies * set.count(order);
+			System.out.println(order.name + " x "  + set.count(order));
 		}
 		
 		System.out.println();
